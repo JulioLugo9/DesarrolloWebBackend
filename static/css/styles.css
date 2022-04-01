@@ -28,7 +28,7 @@ header {
       rgba(161, 140, 209, 0.5) 0%,
       rgba(251, 194, 235, 0.5) 100%
     ),
-    url(../static/img/gallery/campus.jpg);
+    url(static/img/gallery/campus.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;

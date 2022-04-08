@@ -59,8 +59,8 @@ def prueba():
 
     return render_template("home.html", data=nombres)
 
-@app.route('/logout')
-def logout():
-    if "email" in session:
-        session.clear()
-        return redirect(url_for("home"))
+#@app.route('/logout')
+#def logout():
+#    if "email" in session:
+#        session.clear()
+#        return redirect(url_for("home"))

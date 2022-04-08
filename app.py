@@ -16,7 +16,6 @@ def login():
     if(request.method =="GET"):
         return render_template("login.html", error="email")
     else:
-        email=None
         email = request.form["email"]
         password = request.form["password"]
         return render_template("index.html", error=email)

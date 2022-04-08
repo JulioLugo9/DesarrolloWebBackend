@@ -11,7 +11,6 @@ app.secret_key = "super secret key"
 @app.route('/')
 def home():
     email = None
-
     if "email" in session:
         email = session["emai"]
         return render_template('index.html', error=email)
@@ -19,19 +18,19 @@ def home():
         return render_template('login.html', error=email)
 
 
-#@app.route('/signup')
-#def signup():
-#    name = request.form["name"]
-#    email = request.form["email"]
-#    password = request.form["password"]
-#    return render_template('index.html', data=email)
+@app.route('/signup')
+def signup():
+    name = request.form["name"]
+    email = request.form["email"]
+    password = request.form["password"]
+    return render_template('index.html', error=email)
 
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
     email = None
     if "email" in session:
-        return render_template('index.html', data=session["email"])
+        return render_template('index.html', error=session["email"])
     else:
 
         if(request.method =="GET"):
@@ -41,6 +40,7 @@ def login():
             password = request.form["password"]
             session["email"] = email
             return render_template("index.html", error=email)
+
 
 @app.route('/estructuradedatos')
 def prueba():
@@ -59,8 +59,8 @@ def prueba():
 
     return render_template("home.html", data=nombres)
 
-#@app.route('/logout')
-#def logout():
-#    if "email" in session:
-#        session.clear()
-#        return redirect(url_for("home"))
+@app.route('/logout')
+def logout():
+    if "email" in session:
+        session.clear()
+        return redirect(url_for("home"))

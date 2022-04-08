@@ -1,6 +1,8 @@
 
 from flask import Flask, redirect, render_template, request, session, url_for
 import datetime
+
+
 # FlASK
 #############################################################
 app = Flask(__name__)
@@ -33,7 +35,7 @@ def login():
         return render_template('index.html', data=session["email"])
     else:
         if (request.method == "GET"):
-            return render_template("Login.html", data="email")
+            return render_template("login.html", data="email")
         else:
             email = request.form["email"]
             password = request.form["password"]

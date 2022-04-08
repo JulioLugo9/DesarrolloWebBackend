@@ -13,9 +13,9 @@ def home():
     email = None
     if "email" in session:
         email = session["emai"]
-        return render_template('index.html', error=email)
+        return render_template('index.html', data=email)
     else:
-        return render_template('login.html', error=email)
+        return render_template('login.html', data=email)
 
 
 @app.route('/signup')
@@ -23,23 +23,23 @@ def signup():
     name = request.form["name"]
     email = request.form["email"]
     password = request.form["password"]
-    return render_template('index.html', error=email)
+    return render_template('index.html', data=email)
 
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
     email = None
     if "email" in session:
-        return render_template('index.html', error=session["email"])
+        return render_template('index.html', data=session["email"])
     else:
-
-        if(request.method =="GET"):
-            return render_template("login.html", error="email")
+        if (request.method == "GET"):
+            return render_template("Login.html", data="email")
         else:
             email = request.form["email"]
             password = request.form["password"]
             session["email"] = email
-            return render_template("index.html", error=email)
+            return render_template("index.html", data=email)
+
 
 
 @app.route('/estructuradedatos')

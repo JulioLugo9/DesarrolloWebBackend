@@ -18,12 +18,13 @@ def home():
     else:
         return render_template('login.html', error=email)
 
-@app.route('/signup')
-def signup():
-    name = request.form["name"]
-    email = request.form["email"]
-    password = request.form["password"]
-    return render_template('index.html', data=email)
+
+#@app.route('/signup')
+#def signup():
+#    name = request.form["name"]
+#    email = request.form["email"]
+#    password = request.form["password"]
+#    return render_template('index.html', data=email)
 
 
 @app.route("/login", methods=["GET", "POST"])

@@ -1,5 +1,6 @@
 from crypt import methods
-from flask import Flask, render_template
+import email
+from flask import Flask, render_template, request
 
 # FlASK
 #############################################################
@@ -9,6 +10,18 @@ app = Flask(__name__)
 @app.route('/')
 def home():
     return render_template('index.html')
+
+@app.route("/login", methods=["GET"])
+def login():
+    return render_template("Login.html", error=email)
+
+
+@app.route("/loginuser", methods=["POST"])
+def loginuser():
+    email = request.form["email"]
+    password = request.form["password"]
+    return render_template("index.html", error=email)
+
 
 @app.route('/estructuradedatos')
 def prueba():

@@ -44,6 +44,7 @@ def login():
 
 
 
+
 @app.route('/estructuradedatos')
 def prueba():
     nombres = []

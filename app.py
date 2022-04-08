@@ -1,5 +1,4 @@
 from crypt import methods
-import email
 from flask import Flask, render_template, request
 
 # FlASK
@@ -11,17 +10,17 @@ app = Flask(__name__)
 def home():
     return render_template('index.html')
 
-@app.route("/login", methods=["GET"])
+@
+
+@app.route("/login", methods=["GET", "POST"])
 def login():
-    return render_template("Login.html", error=email)
-
-
-@app.route("/loginuser", methods=["POST"])
-def loginuser():
-    email = request.form["email"]
-    password = request.form["password"]
-    return render_template("index.html", error=email)
-
+    if(request.method =="GET"):
+        return render_template("Login.html", error="email")
+    else:
+        email=None
+        email = request.form["email"]
+        password = request.form["password"]
+        return render_template("index.html", error=email)
 
 @app.route('/estructuradedatos')
 def prueba():

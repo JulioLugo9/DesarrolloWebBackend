@@ -1,4 +1,15 @@
 <h2>Mercado del borrego negro: Iniciar sesión/Registrarse</h2>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+            <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                <span>{{ message }}</span>
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+
 <div class="container" id="container">
     <div class="form-container sign-up-container">
         <form action="/signup" method="POST" >
@@ -12,6 +23,7 @@
             <input type="text" name="name" placeholder="Nombre" />
             <input type="email" name = "email" placeholder="Correo" />
             <input type="password" name="password" placeholder="Contraseña" />
+            <input type="tel" name="phone" placeholder="Telefono 10 digitos" />
             <button type = "submit">Crear cuenta</button>
         </form>
     </div>

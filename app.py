@@ -87,7 +87,7 @@ def signup():
                 print("hola 1.5")
                 comogusten = TwilioClient.messages.create(
                     from_="whatsapp:+14155238886",
-                    body="Hola, %s, desde aquí recibirás todas las ofertas especiales que existan en nuestra pagina prueba finare" % (
+                    body="Hola, %s, desde aquí recibirás todas las ofertas especiales que existan en nuestra pagina" % (
                         name),
                     to="whatsapp:"+phone
                 )

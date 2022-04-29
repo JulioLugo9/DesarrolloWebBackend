@@ -243,3 +243,18 @@ def update():
 @app.route('/create')
 def create():
     return render_template("Create.html")
+
+@app.route('/sms', methods=['POST'])
+def sms():
+    number = request.form['From']
+    message_body = request.form['Body']
+
+    comogusten = TwilioClient.messages.create(
+        from_="whatsapp:+14155238886",
+        body=('Hello Ruben {}, you said: {}'.format(number, message_body)),
+        to=number
+    )
+    print(comogusten.sid)
+
+    return str(comogusten)
+
